@@ -1,0 +1,9 @@
+.idea
+**/target/*
+*.patch
+*.iml
+.project
+.classpath
+.settings
+patchprocess
+**/dependency-reduced-pom.xml
