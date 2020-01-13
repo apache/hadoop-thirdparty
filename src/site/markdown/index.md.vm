@@ -1,0 +1,45 @@
+<!---
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+Apache Hadoop Thirdparty Libs ${project.version}
+================================
+
+Apache Hadoop Thirdparty packages relocated third-party libraries used by
+Apache Hadoop.
+
+**DISCLAIMER : This project is for Apache Hadoop internal use. Included libs
+and/or their versions are subject to change at the dictate of hadoop without
+regard to the concern of others!**
+
+
+All shading is done using the same relocation offset of
+**org.apache.hadoop.thirdparty**. We add this prefix to the relocated thirdparty
+library class names.
+
+Apache Hadoop Thirdparty ${project.version} introduces following major changes.
+
+Overview
+========
+
+Users are encouraged to read the full set of release notes.
+This page provides an overview of the major changes.
+
+Protobuf-java
+-------------
+Google Protobuf's 3.7.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7* artifact.
