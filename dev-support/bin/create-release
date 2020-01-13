@@ -135,7 +135,7 @@ function header()
   echo "============================================================================"
   echo "============================================================================"
   printf "\n\n"
-  echo "Version to create      : ${HADOOP_VERSION}"
+  echo "Version to create      : ${HADOOP_THIRDPARTY_VERSION}"
   echo "Release Candidate Label: ${RC_LABEL##-}"
   echo "Source Version         : ${DEFAULT_HADOOP_THIRDPARTY_VERSION}"
   printf "\n\n"
