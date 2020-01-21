@@ -93,6 +93,7 @@
 
     <!--thirdparty dependency versions-->
     <shaded.prefix>org.apache.hadoop.thirdparty</shaded.prefix>
+    <protobuf.shade.prefix>${shaded.prefix}.protobuf</protobuf.shade.prefix>
     <protobuf_3_7.version>3.7.1</protobuf_3_7.version>
 
     <!-- maven plugin versions -->
