@@ -176,6 +176,15 @@ if ! (gunzip -c "${TARBALL}.gz" | tar xpf -); then
   exit 1
 fi
 
+if [[ "${WANTED}" == "releasedocmaker" ]]; then
+  # releasedocmaker expects versions to be in form of x.y.z to generate index and readme files.
+  # But thirdparty version will be in form of 'thirdparty-x.y.z'
+  if [[ -x "${HADOOP_PATCHPROCESS}/${YETUS_PREFIX}-${HADOOP_YETUS_VERSION}/lib/releasedocmaker/releasedocmaker/__init__.py" ]]; then
+    sed -i 's@glob(\"@glob(\"thirdparty-@g' "${HADOOP_PATCHPROCESS}/${YETUS_PREFIX}-${HADOOP_YETUS_VERSION}/lib/releasedocmaker/releasedocmaker/__init__.py"
+    sed -i 's@%s v%s@%s %s@g' "${HADOOP_PATCHPROCESS}/${YETUS_PREFIX}-${HADOOP_YETUS_VERSION}/lib/releasedocmaker/releasedocmaker/__init__.py"
+  fi
+fi
+
 if [[ -x "${HADOOP_PATCHPROCESS}/${YETUS_PREFIX}-${HADOOP_YETUS_VERSION}/bin/${WANTED}" ]]; then
   popd >/dev/null
   exec "${HADOOP_PATCHPROCESS}/${YETUS_PREFIX}-${HADOOP_YETUS_VERSION}/bin/${WANTED}" "${ARGV[@]}"
