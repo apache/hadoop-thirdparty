@@ -551,12 +551,12 @@ function makearelease
 
   # Stage CHANGELOG and RELEASENOTES files
   for i in CHANGELOG RELEASENOTES; do
-    if [[ $(ls -l "${BASEDIR}/src/site/markdown/release/${HADOOP_THIRDPARTY_VERSION}"/${i}*.md | wc -l) == 0 ]]; then
+    if [[ $(ls -l "${BASEDIR}/src/site/markdown/release/thirdparty-${HADOOP_THIRDPARTY_VERSION}"/${i}*.md | wc -l) == 0 ]]; then
       echo "No ${i} found. Continuing..."
       continue;
     fi
     run cp -p \
-        "${BASEDIR}/src/site/markdown/release/${HADOOP_THIRDPARTY_VERSION}"/${i}*.md \
+        "${BASEDIR}/src/site/markdown/release/thirdparty-${HADOOP_THIRDPARTY_VERSION}"/${i}*.md \
         "${ARTIFACTS_DIR}/${i}.md"
   done
 
