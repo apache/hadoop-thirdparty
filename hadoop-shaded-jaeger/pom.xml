@@ -24,16 +24,6 @@
             <artifactId>jaeger-client</artifactId>
             <version>${jaegertracing.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.jaegertracing</groupId>
-            <artifactId>jaeger-thrift</artifactId>
-            <version>${jaegertracing.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.thrift</groupId>
-            <artifactId>libthrift</artifactId>
-            <version>0.13.0</version>
-        </dependency>
     </dependencies>
 
     <build>
