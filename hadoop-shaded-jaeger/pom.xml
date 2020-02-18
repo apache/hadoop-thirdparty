@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hadoop-jaeger</artifactId>
+    <artifactId>hadoop-shaded-jaeger</artifactId>
 
     <name>Apache Hadoop shaded JaegerTracer</name>
     <packaging>jar</packaging>
