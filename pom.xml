@@ -122,6 +122,7 @@
 
   <modules>
     <module>hadoop-shaded-protobuf_3_7</module>
+    <module>hadoop-shaded-jaeger</module>
   </modules>
 
   <build>
