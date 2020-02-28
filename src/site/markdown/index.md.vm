@@ -43,4 +43,31 @@ This page provides an overview of the major changes.
 Protobuf-java
 -------------
 Google Protobuf's 3.7.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7* artifact.
-*com.google.protobuf* package is shaded as *org.apache.hadoop.thirdparty.protobuf*.
+
+Following are relocations under *hadoop-shaded-protobuf_3_7* artifact:
+
+|Original package | Shaded package |
+|---|---|
+|com.google.protobuf|org.apache.hadoop.thirdparty.protobuf|
+
+
+io.jaegertracing:jaeger-client
+------------------------------
+jaeger-client: 0.34.2 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-jaeger* artifact.
+
+Following are relocations under *hadoop-shaded-jaeger* artifact:
+
+|Original package | Shaded package |
+|---|---|
+|com.google.gson | org.apache.hadoop.thirdparty.io.jaegertracing.com.google.gson|
+|io.jaegertracing.thriftjava|org.apache.hadoop.thirdparty.io.jaegertracing.thriftjava|
+|io.jaegertracing.crossdock|org.apache.hadoop.thirdparty.io.jaegertracing.crossdock|
+|io.jaegertracing.thrift|org.apache.hadoop.thirdparty.io.jaegertracing.thrift|
+|io.jaegertracing.agent|org.apache.hadoop.thirdparty.io.jaegertracing.agent|
+|org.apache.thrift|org.apache.hadoop.thirdparty.io.jaegertracing.apache.thrift|
+|com.twitter.zipkin|org.apache.hadoop.thirdparty.io.jaegertracing.com.twitter.zipkin|
+|okhttp3|org.apache.hadoop.thirdparty.io.jaegertracing.okhttp3|
+|kotlin|org.apache.hadoop.thirdparty.io.jaegertracing.kotlin|
+|org.intellij|org.apache.hadoop.thirdparty.io.jaegertracing.org.intellij|
+|org.jetbrains|org.apache.hadoop.thirdparty.io.jaegertracing.org.jetbrains|
+|okio|org.apache.hadoop.thirdparty.io.jaegertracing.okio|

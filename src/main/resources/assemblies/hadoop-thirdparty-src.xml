@@ -55,7 +55,7 @@
         <exclude>**/*.log</exclude>
         <exclude>**/build/**</exclude>
         <exclude>**/file:/**</exclude>
-        <exclude>**/SecurityAuth.audit*</exclude>
+        <exclude>patchprocess/**</exclude>
       </excludes>
     </fileSet>
   </fileSets>
