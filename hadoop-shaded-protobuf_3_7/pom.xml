@@ -43,6 +43,20 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/..</directory>
+        <targetPath>META-INF</targetPath>
+        <includes>
+          <include>licenses-binary/*</include>
+          <include>NOTICE.txt</include>
+          <include>NOTICE-binary</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -86,11 +100,8 @@
               </relocations>
               <transformers>
                 <transformer
-                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
-                <transformer
                     implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
                   <resources>
-                    <resource>NOTICE.txt</resource>
                     <resource>NOTICE</resource>
                     <resource>LICENSE</resource>
                   </resources>
@@ -98,12 +109,7 @@
                 <transformer
                     implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                   <resource>META-INF/LICENSE.txt</resource>
-                  <file>${basedir}/../LICENSE.txt</file>
-                </transformer>
-                <transformer
-                    implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                  <resource>META-INF/NOTICE.txt</resource>
-                  <file>${basedir}/../NOTICE.txt</file>
+                  <file>${basedir}/../LICENSE-binary</file>
                 </transformer>
               </transformers>
             </configuration>

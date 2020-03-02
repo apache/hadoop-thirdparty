@@ -45,6 +45,20 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/..</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>licenses-binary/*</include>
+                    <include>NOTICE.txt</include>
+                    <include>NOTICE-binary</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -147,14 +161,14 @@
                                             <resource>ASL2.0</resource>
                                             <!-- also this unneeded doc -->
                                             <resource>overview.html</resource>
+                                            <resource>NOTICE</resource>
+                                            <resource>LICENSE</resource>
                                         </resources>
                                     </transformer>
-                                    <!-- Where notices exist, just concat them -->
-                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
-                                        <addHeader>false</addHeader>
-                                        <projectName>${project.name}</projectName>
-                                    </transformer>
-                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                        <resource>META-INF/LICENSE.txt</resource>
+                                        <file>${basedir}/../LICENSE-binary</file>
                                     </transformer>
                                 </transformers>
                             </configuration>
