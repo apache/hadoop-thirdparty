@@ -262,6 +262,7 @@
             <exclude>licenses/**</exclude>
             <exclude>licenses-binary/**</exclude>
             <exclude>**/dependency-reduced-pom.xml</exclude>
+            <exclude>NOTICE-binary</exclude>
           </excludes>
         </configuration>
       </plugin>
