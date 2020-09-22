@@ -37,25 +37,10 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
             <exclusions>
-                <exclusion>
-                    <groupId>com.google.code.findbugs</groupId>
-                    <artifactId>jsr305</artifactId>
-                </exclusion>
+                <!-- Excluding error_prone_annotations because of YARN-10195-->
                 <exclusion>
                     <groupId>com.google.errorprone</groupId>
                     <artifactId>error_prone_annotations</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.j2objc</groupId>
-                    <artifactId>j2objc-annotations</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>animal-sniffer-annotations</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.checkerframework</groupId>
-                    <artifactId>checker-qual</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -91,15 +76,18 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <artifactSet>
-                                <includes>
-                                    <include>com.google.guava:*</include>
-                                </includes>
-                            </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>com/google/</pattern>
-                                    <shadedPattern>${shaded.prefix}/</shadedPattern>
+                                    <shadedPattern>${shaded.prefix}/com/google/</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org/checkerframework/</pattern>
+                                    <shadedPattern>${shaded.prefix}/org/checkerframework/</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>javax/</pattern>
+                                    <shadedPattern>${shaded.prefix}/javax/annotation/</shadedPattern>
                                 </relocation>
                             </relocations>
                             <transformers>
