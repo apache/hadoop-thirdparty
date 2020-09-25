@@ -76,6 +76,11 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>com.google.code.findbugs:jsr305</exclude>
+                                </excludes>
+                            </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>com/google/</pattern>
@@ -84,10 +89,6 @@
                                 <relocation>
                                     <pattern>org/checkerframework/</pattern>
                                     <shadedPattern>${shaded.prefix}/org/checkerframework/</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>javax/</pattern>
-                                    <shadedPattern>${shaded.prefix}/javax/annotation/</shadedPattern>
                                 </relocation>
                             </relocations>
                             <transformers>
