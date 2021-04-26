@@ -16,7 +16,7 @@ jobs:
     - name: Dependency check with Maven
       run: mvn dependency-check:aggregate
     - name: Upload the report
-      uses: actions/upload-artifact
+      uses: actions/upload-artifact@v2
       with:
         name: dependency-check-report
         path: "**/target/dependency-check-report.html"
