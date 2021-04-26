@@ -1,0 +1,23 @@
+name: Dependency check
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v2
+      with:
+        java-versions: '8'
+        distribution: 'adopt'
+    - name: Dependency check with Maven
+      runs: mvn dependency-check:aggregate
+    - name: Upload the report
+      uses: actions/upload-artifact
+      with:
+        name: dependency-check-report
+        path: "**/target/dependency-check-report.html"
+
