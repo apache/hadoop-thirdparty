@@ -14,7 +14,7 @@ jobs:
         java-versions: '8'
         distribution: 'adopt'
     - name: Dependency check with Maven
-      runs: mvn dependency-check:aggregate
+      run: mvn dependency-check:aggregate
     - name: Upload the report
       uses: actions/upload-artifact
       with:
