@@ -1,6 +1,6 @@
 name: Dependency check
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
