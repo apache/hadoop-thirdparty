@@ -206,6 +206,7 @@ This project bundles some components that are also licensed under the Apache
 License Version 2.0:
 
 com.google.code.gson:gson:jar:2.8.6
+com.google.guava:guava:jar:30.1.1-jre
 com.squareup.okhttp3:okhttp:jar:4.2.2
 com.squareup.okio:okio:jar:2.2.2
 
