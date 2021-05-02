@@ -27,8 +27,8 @@
     <relativePath>..</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>hadoop-shaded-protobuf_3_7</artifactId>
-  <name>Apache Hadoop shaded Protobuf 3.7</name>
+  <artifactId>hadoop-shaded-protobuf_3_12</artifactId>
+  <name>Apache Hadoop shaded Protobuf 3.12</name>
   <packaging>jar</packaging>
 
   <properties>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>${protobuf_3_7.version}</version>
+      <version>${protobuf_3_12.version}</version>
     </dependency>
   </dependencies>
 
