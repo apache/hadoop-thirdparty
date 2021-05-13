@@ -3,39 +3,3 @@ Copyright 2020 and onwards The Apache Software Foundation.
 
 This product includes software developed at
 The Apache Software Foundation (http://www.apache.org/).
-
-// ------------------------------------------------------------------
-// NOTICE file corresponding to the section 4d of The Apache License,
-// Version 2.0, in this case for
-// ------------------------------------------------------------------
-
---------
-
-Apache Thrift
-Copyright (C) 2006 - 2019, The Apache Software Foundation
-
---------
-
-**********************
-THIRD PARTY COMPONENTS
-**********************
----------
-Kotlin
-
-This projects contains a modified portion of following kotlin artifacts:
-
-   org.jetbrains.kotlin:kotlin-stdlib
-   org.jetbrains.kotlin:kotlin-stdlib-common
-
-   =========================================================================
-   ==  NOTICE file corresponding to the section 4 d of                    ==
-   ==  the Apache License, Version 2.0,                                   ==
-   ==  in this case for the Kotlin Compiler distribution.                 ==
-   =========================================================================
-
-   Kotlin Compiler
-   Copyright 2010-2020 JetBrains s.r.o and respective authors and developers
-
-   * LICENCE:
-      * license/LICENSE.kotlin.txt (Apache License 2.0)
----------
