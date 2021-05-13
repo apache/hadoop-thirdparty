@@ -59,8 +59,6 @@ RUN apt-get -q update \
         libbz2-dev \
         libcurl4-openssl-dev \
         libfuse-dev \
-        libprotobuf-dev \
-        libprotoc-dev \
         libsasl2-dev \
         libssl-dev \
         libtool \
@@ -93,23 +91,6 @@ RUN apt-get -q update \
     && apt-get -q install -y --no-install-recommends openjdk-8-jdk libbcprov-java \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-######
-# Install Google Protobuf 3.7.1 (3.0.0 ships with Bionic)
-######
-# hadolint ignore=DL3003
-RUN mkdir -p /opt/protobuf-src \
-    && curl -L -s -S \
-      https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protobuf-java-3.7.1.tar.gz \
-      -o /opt/protobuf.tar.gz \
-    && tar xzf /opt/protobuf.tar.gz --strip-components 1 -C /opt/protobuf-src \
-    && cd /opt/protobuf-src \
-    && ./configure --prefix=/opt/protobuf \
-    && make install \
-    && cd /root \
-    && rm -rf /opt/protobuf-src
-ENV PROTOBUF_HOME /opt/protobuf
-ENV PATH "${PATH}:/opt/protobuf/bin"
 
 ######
 # Install Apache Maven 3.6.0 (3.6.0 ships with Bionic)
