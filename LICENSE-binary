@@ -216,7 +216,7 @@ See licenses-binary/ for text of these licenses.
 
 BSD 3-Clause
 ------------
-com.google.protobuf:protobuf-java:3.12.4
+com.google.protobuf:protobuf-java:3.17.0
 
 
 MIT License
