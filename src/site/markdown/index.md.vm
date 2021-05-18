@@ -49,3 +49,14 @@ Following are relocations under *hadoop-shaded-protobuf_3_7* artifact:
 |Original package | Shaded package |
 |---|---|
 |com.google.protobuf|org.apache.hadoop.thirdparty.protobuf|
+
+
+Guava
+-------------
+Google Guava's 30.1.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-guava* artifact.
+
+Following are relocations under *hadoop-shaded-guava* artifact:
+
+|Original package | Shaded package |
+|---|---|
+|com.google.guava|org.apache.hadoop.thirdparty.com.google.common|
