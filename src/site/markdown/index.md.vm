@@ -60,3 +60,4 @@ Following are relocations under *hadoop-shaded-guava* artifact:
 |Original package | Shaded package |
 |---|---|
 |com.google.guava|org.apache.hadoop.thirdparty.com.google|
+|org.checkerframework|org.apache.hadoop.thirdparty.org.checkerframework|
