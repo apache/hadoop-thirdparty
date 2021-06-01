@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Hadoop Third-party Libs thirdparty-1.1.0
-    * [Changelog](thirdparty-1.1.0/CHANGELOG.thirdparty-1.1.0.html)
-    * [Release Notes](thirdparty-1.1.0/RELEASENOTES.thirdparty-1.1.0.html)
-* Apache Hadoop Third-party Libs thirdparty-1.0.0
-    * [Changelog](thirdparty-1.0.0/CHANGELOG.thirdparty-1.0.0.html)
-    * [Release Notes](thirdparty-1.0.0/RELEASENOTES.thirdparty-1.0.0.html)
+# Apache Hadoop Third-party Libs  thirdparty-1.1.1 Release Notes
+
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+

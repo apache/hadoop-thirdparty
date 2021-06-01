@@ -16,9 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Hadoop Third-party Libs thirdparty-1.1.0
-    * [Changelog](thirdparty-1.1.0/CHANGELOG.thirdparty-1.1.0.md)
-    * [Release Notes](thirdparty-1.1.0/RELEASENOTES.thirdparty-1.1.0.md)
-* Apache Hadoop Third-party Libs thirdparty-1.0.0
-    * [Changelog](thirdparty-1.0.0/CHANGELOG.thirdparty-1.0.0.md)
-    * [Release Notes](thirdparty-1.0.0/RELEASENOTES.thirdparty-1.0.0.md)
+# Apache Hadoop Third-party Libs Changelog
+
+## Release thirdparty-1.1.1 - 2021-06-01
+
+
+
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-17707](https://issues.apache.org/jira/browse/HADOOP-17707) | Remove jaeger document from site index |  Major | . | Takanobu Asanuma | Takanobu Asanuma |
+| [HADOOP-17730](https://issues.apache.org/jira/browse/HADOOP-17730) | [thirdparty] Do not exclude error\_prone |  Major | . | Wei-Chiu Chuang | Wei-Chiu Chuang |
+
+
