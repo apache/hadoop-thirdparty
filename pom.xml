@@ -94,7 +94,7 @@
     <!--thirdparty dependency versions-->
     <shaded.prefix>org.apache.hadoop.thirdparty</shaded.prefix>
     <protobuf.shade.prefix>${shaded.prefix}.protobuf</protobuf.shade.prefix>
-    <protobuf_3_17.version>3.17.0</protobuf_3_17.version>
+    <protobuf_3_17.version>3.17.3</protobuf_3_17.version>
     <guava.version>30.1.1-jre</guava.version>
 
     <!-- maven plugin versions -->
