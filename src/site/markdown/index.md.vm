@@ -51,11 +51,11 @@ Following are relocations under *hadoop-shaded-protobuf_3_17* artifact:
 |com.google.protobuf|org.apache.hadoop.thirdparty.protobuf|
 
 
-io.jaegertracing:jaeger-client
-------------------------------
-jaeger-client: 0.34.2 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-jaeger* artifact.
+Guava
+-------------
+Google Guava's 30.1.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-guava* artifact.
 
-Following are relocations under *hadoop-shaded-jaeger* artifact:
+Following are relocations under *hadoop-shaded-guava* artifact:
 
 |Original package | Shaded package |
 |---|---|
