@@ -42,7 +42,7 @@ This page provides an overview of the major changes.
 
 Protobuf-java
 -------------
-Google Protobuf's 3.7.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7* artifact.
+Google Protobuf's 3.21.1 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7* artifact.
 
 Following are relocations under *hadoop-shaded-protobuf_3_7* artifact:
 
