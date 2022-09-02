@@ -73,6 +73,7 @@
                                 <excludes>
                                     <exclude>org.apache.commons:commons-compress</exclude>
                                     <exclude>org.slf4j:slf4j-api</exclude>
+                                    <exclude>com.fasterxml.jackson.core:*</exclude>
                                 </excludes>
                             </artifactSet>
                             <relocations>
@@ -80,19 +81,8 @@
                                     <pattern>org/apache/avro</pattern>
                                     <shadedPattern>${shaded.prefix}/avro</shadedPattern>
                                 </relocation>
-                                <relocation>
-                                    <pattern>com.fasterxml.jackson</pattern>
-                                    <shadedPattern>${shaded.prefix}/avro/jackson</shadedPattern>
-                                </relocation>
                             </relocations>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
-                                    <resources>
-                                        <resource>NOTICE</resource>
-                                        <resource>LICENSE</resource>
-                                    </resources>
-                                </transformer>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE.txt</resource>
