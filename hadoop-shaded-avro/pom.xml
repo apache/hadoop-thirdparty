@@ -60,6 +60,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <configuration>
                     <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
                 </configuration>
                 <executions>
                     <execution>
@@ -70,11 +71,9 @@
                         </goals>
                         <configuration>
                             <artifactSet>
-                                <excludes>
-                                    <exclude>org.apache.commons:commons-compress</exclude>
-                                    <exclude>org.slf4j:slf4j-api</exclude>
-                                    <exclude>com.fasterxml.jackson.core:*</exclude>
-                                </excludes>
+                                <includes>
+                                    <include>org.apache.avro:avro</include>
+                                </includes>
                             </artifactSet>
                             <relocations>
                                 <relocation>
