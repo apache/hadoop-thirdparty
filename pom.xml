@@ -125,7 +125,7 @@
   <modules>
     <module>hadoop-shaded-protobuf_3_7</module>
     <module>hadoop-shaded-guava</module>
-    <module>hadoop-shaded-avro</module>
+    <module>hadoop-shaded-avro_1_11</module>
   </modules>
 
   <build>
