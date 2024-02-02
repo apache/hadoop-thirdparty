@@ -125,6 +125,8 @@ ENV FINDBUGS_HOME /usr
 ####
 RUN pip2 install isort==4.3.21
 RUN pip2 install pylint==1.9.2
+RUN pip2 install setuptools-scm==5.0.2
+RUN pip2 install lazy-object-proxy==1.5.0
 
 ####
 # Install dateutil.parser
