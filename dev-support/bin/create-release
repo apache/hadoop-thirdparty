@@ -241,6 +241,7 @@ function usage
   echo "--security              Emergency security release"
   echo "--sign                  Use .gnupg dir to sign the artifacts and jars"
   echo "--version=[version]     Use an alternative version string"
+  echo "--mvnargs=[args]        Extra Maven args to be provided when running mvn commands"
 }
 
 function option_parse
@@ -290,6 +291,9 @@ function option_parse
       ;;
       --version=*)
         HADOOP_THIRDPARTY_VERSION=${i#*=}
+      ;;
+      --mvnargs=*)
+        MVNEXTRAARGS=${i#*=}
       ;;
     esac
   done
@@ -356,6 +360,10 @@ function option_parse
     if [[ -d "${MVNCACHE}" ]]; then
       MVN_ARGS=("-Dmaven.repo.local=${MVNCACHE}")
     fi
+  fi
+
+  if [ -n "$MVNEXTRAARGS" ]; then
+    MVN_ARGS+=("$MVNEXTRAARGS")
   fi
 
   if [[ "${SECURITYRELEASE}" = true ]]; then
