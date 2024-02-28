@@ -27,7 +27,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>hadoop-shaded-protobuf_3_21</artifactId>
+  <artifactId>hadoop-shaded-protobuf_3_23</artifactId>
   <name>Apache Hadoop shaded Protobuf</name>
   <packaging>jar</packaging>
 

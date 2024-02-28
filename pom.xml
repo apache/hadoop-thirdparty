@@ -94,7 +94,7 @@
     <!--thirdparty dependency versions-->
     <shaded.prefix>org.apache.hadoop.thirdparty</shaded.prefix>
     <protobuf.shade.prefix>${shaded.prefix}.protobuf</protobuf.shade.prefix>
-    <protobuf_3.version>3.21.12</protobuf_3.version>
+    <protobuf_3.version>3.23.4</protobuf_3.version>
     <guava.version>32.0.1-jre</guava.version>
     <avro.version>1.11.3</avro.version>
 
@@ -123,7 +123,7 @@
   </organization>
 
   <modules>
-    <module>hadoop-shaded-protobuf_3_21</module>
+    <module>hadoop-shaded-protobuf_3_23</module>
     <module>hadoop-shaded-guava</module>
     <module>hadoop-shaded-avro_1_11</module>
   </modules>
