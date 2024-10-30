@@ -94,7 +94,7 @@
     <!--thirdparty dependency versions-->
     <shaded.prefix>org.apache.hadoop.thirdparty</shaded.prefix>
     <protobuf.shade.prefix>${shaded.prefix}.protobuf</protobuf.shade.prefix>
-    <protobuf_3.version>3.25.3</protobuf_3.version>
+    <protobuf_3.version>3.25.5</protobuf_3.version>
     <guava.version>32.0.1-jre</guava.version>
     <avro.version>1.11.3</avro.version>
 
