@@ -65,7 +65,7 @@ Following are relocations under *hadoop-shaded-guava* artifact:
 
 Avro
 -------------
-Apache Avro's 1.11.3 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-avro* artifact.
+Apache Avro's 1.11.4 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-avro* artifact.
 
 Following are relocations under *hadoop-shaded-avro* artifact:
 
