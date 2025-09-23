@@ -8,7 +8,7 @@
   "License"); you may not use this file except in compliance
   with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing,
   software distributed under the License is distributed on an
@@ -19,7 +19,7 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.hadoop.thirdparty</groupId>
   <artifactId>hadoop-thirdparty</artifactId>
@@ -101,6 +101,11 @@
     <guava.version>33.4.8-jre</guava.version>
     <avro.version>1.11.4</avro.version>
 
+    <!--
+      Transient dependencies which are not bundled but are depended on by those
+      artifacts.
+    -->
+
     <!-- maven plugin versions -->
     <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
     <maven-site-plugin.version>4.0.0-M8</maven-site-plugin.version>
@@ -116,8 +121,38 @@
     <maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
     <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
     <checkstyle.version>10.12.7</checkstyle.version>
-    <dependency-check-maven.version>10.0.2</dependency-check-maven.version>
+
     <exec-maven-plugin.version>3.2.0</exec-maven-plugin.version>
+
+    <!--
+      OWASP's dependency-check plugin will scan the third party
+      dependencies of this project for known CVEs (security
+      vulnerabilities against them). It will produce a report
+      in target/dependency-check-report.html.
+
+      To invoke, run
+        mvn dependency-check:aggregate
+      on a java11+ runtime (even if you still release on java8)
+
+      This is a slow process due to the download of the CVE list; pushing a draft PR
+      up is generally a better strategy except when working on the build process itself.
+
+      See: https://jeremylong.github.io/DependencyCheck/dependency-check-maven/
+     -->
+    <dependency-check-maven.version>12.1.5</dependency-check-maven.version>
+    <!--
+      NVD API key. Without this downloads are slower and may be throttled.
+
+      Request one from https://nvd.nist.gov/developers/request-an-api-key
+      Set on the maven command line
+        mvn dependency-check:aggregate -Dnvd.api.key=081404c1-37e3-48f2-849d-d0f779f48ef2
+    -->
+    <nvd.api.key></nvd.api.key>
+
+    <!--
+      Sonatype OSS requires a key, so is disabled.
+    -->
+    <sonatype.oss.enabled>false</sonatype.oss.enabled>
   </properties>
 
   <organization>
@@ -290,16 +325,16 @@
         <extensions>true</extensions>
       </plugin>
       <plugin>
-        <!-- OWASP's dependency-check plugin will scan the third party
-             dependencies of this project for known CVEs (security
-             vulnerabilities against them). It will produce a report
-             in target/dependency-check-report.html. To invoke, run
-             'mvn dependency-check:aggregate'. Note that this plugin
-             requires maven 3.1.1 or greater.
-        -->
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
         <version>${dependency-check-maven.version}</version>
+        <configuration>
+          <nvdApiKey>${nvd.api.key}</nvdApiKey>
+          <!-- ignore artifacts not shaded -->
+          <skipProvidedScope>true</skipProvidedScope>
+          <!-- sonatype is optional -->
+          <ossindexAnalyzerEnabled>${sonatype.oss.enabled}</ossindexAnalyzerEnabled>
+        </configuration>
       </plugin>
     </plugins>
   </build>
