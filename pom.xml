@@ -108,7 +108,7 @@
 
     <!-- maven plugin versions -->
     <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
-    <maven-site-plugin.version>4.0.0-M8</maven-site-plugin.version>
+    <maven-site-plugin.version>3.6</maven-site-plugin.version>
     <maven-stylus-skin.version>1.5</maven-stylus-skin.version>
     <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
     <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
