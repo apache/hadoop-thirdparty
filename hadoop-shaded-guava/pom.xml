@@ -30,6 +30,10 @@
     <artifactId>hadoop-shaded-guava</artifactId>
     <name>Apache Hadoop shaded Guava</name>
     <packaging>jar</packaging>
+    <description>
+      Contains a shaded version of guava and its dependencies.
+
+    </description>
 
     <dependencies>
         <dependency>
@@ -43,6 +47,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+      <dependency>
+        <groupId>org.checkerframework</groupId>
+        <artifactId>checker-qual</artifactId>
+        <version>${checkerframework.version}</version>
+      </dependency>
     </dependencies>
 
     <build>
