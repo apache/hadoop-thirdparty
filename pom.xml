@@ -98,7 +98,7 @@
     <shaded.prefix>org.apache.hadoop.thirdparty</shaded.prefix>
     <protobuf.shade.prefix>${shaded.prefix}.protobuf</protobuf.shade.prefix>
     <protobuf_3.version>3.25.5</protobuf_3.version>
-    <guava.version>33.4.8-jre</guava.version>
+    <guava.version>33.5.0-jre</guava.version>
     <!-- previous versions of guava included this, but they've stopped it. We reinsert it to the shaded guava artifact-->
     <checkerframework.version>3.51.1</checkerframework.version>
     <avro.version>1.11.4</avro.version>

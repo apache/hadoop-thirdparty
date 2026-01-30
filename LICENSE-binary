@@ -205,7 +205,7 @@
 This project bundles some components that are also licensed under the Apache
 License Version 2.0:
 
-com.google.guava:guava:jar:33.4.8-jre
+com.google.guava:guava:jar:33.5.0-jre
 com.google.guava:failureaccess:jar:1.0.3
 org.jspecify:jspecify:jar:1.0.0
 com.google.errorprone:error_prone_annotations:jar:2.36.0

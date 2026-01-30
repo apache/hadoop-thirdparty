@@ -53,7 +53,7 @@ Following are relocations under *hadoop-shaded-protobuf_3_25* artifact:
 
 Guava
 -------------
-Google Guava's 33.4.8 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-guava* artifact.
+Google Guava's 33.5.0 jar is available as *org.apache.hadoop.thirdparty:hadoop-shaded-guava* artifact.
 
 Following are relocations under *hadoop-shaded-guava* artifact:
 
