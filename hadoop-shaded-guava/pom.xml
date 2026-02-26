@@ -130,6 +130,10 @@
                                     <pattern>org/checkerframework/</pattern>
                                     <shadedPattern>${shaded.prefix}/org/checkerframework/</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org/jspecify/</pattern>
+                                    <shadedPattern>${shaded.prefix}/org/jspecify/</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer
