@@ -101,7 +101,7 @@
     <guava.version>33.4.8-jre</guava.version>
     <!-- previous versions of guava included this, but they've stopped it. We reinsert it to the shaded guava artifact-->
     <checkerframework.version>3.51.1</checkerframework.version>
-    <avro.version>1.11.4</avro.version>
+    <avro.version>1.11.5</avro.version>
 
     <!--
       Transient dependencies which are not bundled but are depended on by those
