@@ -93,16 +93,22 @@ RUN apt-get -q update \
     && rm -rf /var/lib/apt/lists/*
 
 ######
-# Install Apache Maven 3.6.0 (3.6.0 ships with Bionic)
+# Install Apache Maven 3.9.12 (Ubuntu Bionic ships 3.6.0 which is too old;
+# pom.xml requires [3.6.3,))
 ######
-# hadolint ignore=DL3008
-RUN apt-get -q update \
-    && apt-get -q install -y --no-install-recommends maven \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-ENV MAVEN_HOME /usr
+RUN curl -s -S -o /tmp/maven.tar.gz \
+        "https://archive.apache.org/dist/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz" \
+    && echo "0a1be79f02466533fc1a80abbef8796e4f737c46c6574ede5658b110899942a94db634477dfd3745501c80aef9aac0d4f841d38574373f7e2d24cce89d694f70  /tmp/maven.tar.gz" \
+        | sha512sum -c - \
+    && tar -xz -C /opt -f /tmp/maven.tar.gz \
+    && rm /tmp/maven.tar.gz \
+    && ln -sf /opt/apache-maven-3.9.12/bin/mvn /usr/bin/mvn \
+    && ln -sf /opt/apache-maven-3.9.12/bin/mvnDebug /usr/bin/mvnDebug
+ENV MAVEN_HOME /opt/apache-maven-3.9.12
 # JAVA_HOME must be set in Maven >= 3.5.0 (MNG-6003)
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+# Use a symlink to support both amd64 and arm64 builds
+RUN ln -sf "$(ls -d /usr/lib/jvm/java-8-openjdk-* | head -1)" /usr/lib/jvm/java-8-openjdk
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk
 
 ######
 # Install findbugs 3.1.0 (3.1.0 ships with Bionic)
@@ -125,7 +131,8 @@ ENV FINDBUGS_HOME /usr
 ####
 RUN pip2 install isort==4.3.21
 RUN pip2 install setuptools-scm==5.0.2
-RUN pip2 install lazy-object-proxy==1.5.0
+RUN pip2 install wrapt==1.11.2
+RUN pip2 install lazy-object-proxy==1.4.3
 RUN pip2 install pylint==1.9.2
 
 ####
@@ -156,6 +163,8 @@ ENV MAVEN_OPTS -Xms256m -Xmx1536m
 
 # Hugo static website generator (for new hadoop site and Ozone docs)
 RUN curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.30.2/hugo_0.30.2_Linux-64bit.deb \
+    && echo "4a63254d90fb44722d4dabd0a935f749248b9cf182740480836a53f27c30d90df13895361512af204382d8b8cc76aacadbbddd77d99aa8b93608d8e1ece021eb  hugo.deb" \
+        | sha512sum -c - \
     && dpkg --install hugo.deb \
     && rm hugo.deb
 
