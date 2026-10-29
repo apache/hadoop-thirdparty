@@ -196,6 +196,14 @@ function set_defaults
 function startgpgagent
 {
   if [[ "${SIGN}" = true ]]; then
+    # When running inside Docker on macOS, ~/.gnupg is a tmpfs (to support
+    # Unix domain sockets). Copy keys from the read-only staging mount.
+    if [[ "${INDOCKER}" = true && -d /gnupg-source ]]; then
+      cp -r /gnupg-source/. "${HOME}/.gnupg/"
+      chmod 700 "${HOME}/.gnupg"
+      echo "allow-loopback-pinentry" >> "${HOME}/.gnupg/gpg-agent.conf"
+    fi
+
     if [[ -n "${GPGAGENT}" && -z "${GPG_AGENT_INFO}" ]]; then
       echo "starting gpg agent"
       echo "default-cache-ttl 36000" > "${LOGDIR}/gpgagent.conf"
@@ -395,7 +403,11 @@ function dockermode
   imgname="hadoop/createrelease:${HADOOP_THIRDPARTY_VERSION}_${RANDOM}"
 
   if [[ -d "${HOME}/.gnupg" ]]; then
-    extrad+=("-v" "${HOME}/.gnupg:/home/${user_name}/.gnupg")
+    # Mount gnupg files read-only at a staging path; the actual ~/.gnupg is a
+    # tmpfs so that gpg-agent can bind its Unix domain socket there (macOS
+    # volume mounts do not support Unix sockets).
+    extrad+=("-v" "${HOME}/.gnupg:/gnupg-source:ro")
+    extrad+=("--tmpfs" "/home/${user_name}/.gnupg:exec,mode=700,uid=${user_id},gid=${group_id}")
   fi
 
   if [[ -n "${LOGDIR}" ]]; then
@@ -458,7 +470,9 @@ function dockermode
 
     # we always force build with the OpenJDK JDK
     # but with the correct version
-    echo "ENV JAVA_HOME /usr/lib/jvm/java-${JVM_VERSION}-openjdk-amd64"
+    # Use a symlink to support both amd64 and arm64 builds
+    echo "RUN ln -sf \$(ls -d /usr/lib/jvm/java-${JVM_VERSION}-openjdk-* | head -1) /usr/lib/jvm/java-${JVM_VERSION}-openjdk-current"
+    echo "ENV JAVA_HOME /usr/lib/jvm/java-${JVM_VERSION}-openjdk-current"
     echo "USER ${user_name}"
     printf "\n\n"
   ) | docker build -t "${imgname}" -
